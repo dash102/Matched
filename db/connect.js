@@ -15,21 +15,21 @@ var options = {
     connectTimeoutMS: 30000,
 };
 
-conn.openUri(db_uri, options)
-    .then(() => {
-        console.log("Database: connected to " + db_uri);
-    })
-    .catch((err) => {
-        console.log(err);
-    });
+// conn.openUri(db_uri, options)
+//     .then(() => {
+//         console.log("Database: connected to " + db_uri);
+//     })
+//     .catch((err) => {
+//         console.log(err);
+//     });
 
-// instantiate data models
-// (mongoose waits until the connection is established to run these)
-const Allegation = require('./models/allegation');
+// // instantiate data models
+// // (mongoose waits until the connection is established to run these)
+// const Allegation = require('./models/allegation');
 
-module.exports = {
-    connection: conn,
-    models: {
-        Allegation
-    }
-};
+// module.exports = {
+//     connection: conn,
+//     models: {
+//         Allegation
+//     }
+// };

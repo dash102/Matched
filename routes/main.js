@@ -3,7 +3,7 @@ const express = require('express');
 const DIR = require('../constants.js').DIR
 
 
-var allegations = require(path.join(DIR.ROOT, 'controllers/allegations'));
+var injuries = require(path.join(DIR.ROOT, 'controllers/injuries'));
 
 const router = express.Router();
 
@@ -16,8 +16,8 @@ router.get('/thanks', (req, res) => {
    res.render("thanks");
 });
 
-router.post('/accuse', (req, res) => {
-    allegations.submitAllegation(req.body, (results) => {
+router.post('/injuries', (req, res) => {
+    injuries.getInjuryRisk(req.body, (results) => {
         res.send(results);
     });
 });
