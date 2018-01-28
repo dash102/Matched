@@ -108,12 +108,46 @@ dataManual = {
     39: 'Feb 2, 2018 at 3pm',
 }
 
+gapList = [ {day: 0, hour: 0}, {day: 0, hour: 1}, {day: 0, hour: 2}, {day: 0, hour: 3}, {day: 0, hour: 4}, {day: 0, hour: 5}, {day: 0, hour: 6}, {day: 0, hour: 7},
+            {day: 1, hour: 0}, {day: 1, hour: 1}, {day: 1, hour: 2}, {day: 1, hour: 3}, {day: 1, hour: 4}, {day: 1, hour: 5}, {day: 1, hour: 6}, {day: 1, hour: 7},
+            {day: 2, hour: 0}, {day: 2, hour: 1}, {day: 2, hour: 2}, {day: 2, hour: 3}, {day: 2, hour: 4}, {day: 2, hour: 5}, {day: 2, hour: 6}, {day: 2, hour: 7},
+            {day: 3, hour: 0}, {day: 3, hour: 1}, {day: 3, hour: 2}, {day: 3, hour: 3}, {day: 3, hour: 4}, {day: 3, hour: 5}, {day: 3, hour: 6}, {day: 3, hour: 7},
+            {day: 4, hour: 0}, {day: 4, hour: 1}, {day: 4, hour: 2}, {day: 4, hour: 3}, {day: 4, hour: 4}, {day: 4, hour: 5}, {day: 4, hour: 6}, {day: 4, hour: 7}]
+
+
+console.log(gapList[1].hour);
+console.log(gapList.length);
+// Converts visualization to same format as d3 requires
+function convertVisualization(pairs){
+    var final = [];
+    console.log('converting viz');
+    console.log(gapList);
+
+    pairs.forEach(function(d){
+        console.log(d.index);
+        if(d.index >= 2){
+        var newThing = gapList[d.index - 2];
+            final.push({
+                day: newThing.day, 
+                hour: newThing.hour,
+                count: d.danger
+            })
+        }
+    });
+    return final;
+}
 
 function getBestAvailable(forty_outputs, available_times){
     console.log('running get best available');
     paired = new Array();
+    all_paired = new Array();
     forty_outputs.forEach(function(d, i){
         paired.push({
+            danger: forty_outputs[i],
+            index: i,
+            available: available_times[i]
+        });
+        all_paired.push({
             danger: forty_outputs[i],
             index: i,
             available: available_times[i]
@@ -135,9 +169,15 @@ function getBestAvailable(forty_outputs, available_times){
         };
         return total;
     }
-    console.log(paired);
+    console.log(all_paired);
+    console.log('just printed paired');
 
-    console.log('about to be at bottom')
+    // Updates the d3 visualization
+
+    converted = convertVisualization(all_paired);
+    console.log(converted);
+    updateVisualization(converted);
+
     var num_teams = $('#num_teams').val();
     console.log(num_teams);
     var txt = ('The safest time to play soccer are: <ul>' + genListTxt(num_teams) + '</ul>');
