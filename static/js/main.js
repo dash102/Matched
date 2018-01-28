@@ -20,10 +20,9 @@ function getHeatIndex(T,R){
             + c9 * T * T * R * R );
 }
 
-function getWeather(){
+function getWeather(zipcode){
     // Get weather data
-    zipcode = '33101';
-    key = "f123ec11eb36daac9c3f5ef9a26c5ab6";
+    const key = "f123ec11eb36daac9c3f5ef9a26c5ab6";
     $.getJSON("http://api.openweathermap.org/data/2.5/forecast?zip=" + zipcode + "&APPID=" + key ,function(json){
         var output = JSON.stringify(json, null, 2);
         var jsonParsed = JSON.parse(output);
@@ -129,10 +128,10 @@ function getBestAvailable(forty_outputs, available_times){
         }
     });
     function genListTxt(i){
-        var total = ''
-        for(k = 0 ; k< i; k++){
+        var total = '';
+        for(var k = 0 ; k< i; k++){
             total += '<li>' + dataManual[paired[k]['index']] + '</li>';
-        };
+        }
         return total;
     }
     console.log(paired);
@@ -239,6 +238,8 @@ $(document).ready(function(){
     // };
 
     document.getElementById("weather").onclick = function(){
-        getWeather();
+        var zipcode = $('#zip_code').val();
+        console.log(zipcode);
+        getWeather(zipcode);
     };
 });
