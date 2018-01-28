@@ -58,7 +58,11 @@ h1 {
     list-style: none;
     width: 300px;
     margin-left: 520px;
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     text-align: center;
+}
+#selectMatches {
+    width: 500px;
+    margin-left: -100px;
 }
