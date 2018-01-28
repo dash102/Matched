@@ -41,7 +41,6 @@ h1 {
 
 .error-warn {
     color: red;
-    font-weight: bold;
 }
 
 #submit {
@@ -53,3 +52,8 @@ h1 {
     border: solid rgb(108, 155, 209);
     border-radius: 10px;
 }
+
+#t1{font-size: 25px;}
+#gameid {width: 200px;}
+#timepicker {width: 200px;}
+#injurytype {width: 200px; margin-bottom: 30px;}
