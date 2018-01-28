@@ -1,7 +1,7 @@
 
 const db = require('../db/connect');
 
-const Game = db.models.Game;
+//const Game = db.models.Game;
 
 games = [{
     start_time: new Date(2018, 0, 27, 17, 20),

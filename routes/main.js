@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const DIR = require('../constants.js').DIR
 
-
+var weather = require(path.join(DIR.ROOT, 'controllers/weather'));
 var injuries = require(path.join(DIR.ROOT, 'controllers/injuries'));
 var games = require(path.join(DIR.ROOT, 'controllers/games'));
 
@@ -24,6 +24,15 @@ router.post('/games', (req, res) => {
         res.send(results);
 	});
   	// res.render("ref");
+});
+
+
+router.get('/weather', (req, res) => {
+    weather.findWeather((results) => {
+        console.log('about to send result to frontend');
+        res.send(results);
+    });
+    // res.render("ref");
 });
 
 // Let anyone get the schedule
