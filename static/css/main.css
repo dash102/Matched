@@ -1,0 +1,55 @@
+/*!
+ * Start Bootstrap - Landing Page v4.0.0-beta.2 (https://startbootstrap.com/template-overviews/landing-page)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-landing-page/blob/master/LICENSE)
+ */
+
+body {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+body {
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 5%;
+    background-color: rgba(128, 128, 128, 0.116); 
+}
+
+hr {
+    height: 2px;
+    background-color: gray;
+}
+
+#checkboxes {
+    border: dashed #f2b7b0;
+    /*font-weight: 2px;*/
+    padding: 20px;
+}
+
+h4 {
+    margin-top: 25px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.error-warn {
+    color: red;
+    font-weight: bold;
+}
+
+#submit {
+    margin: auto;
+}
+
+.btn{
+    min-width: 130px;
+    border: solid rgb(108, 155, 209);
+    border-radius: 10px;
+}
