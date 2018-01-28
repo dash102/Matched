@@ -1,5 +1,25 @@
-
-
+function getWeather(){
+    console.log('about to ajax');
+    var json = {
+        'zip': '55419'
+    };
+    $.ajax({
+        type: 'GET',
+        contentType: 'application/json; charset=utf-8',
+        data: JSON.stringify(json),
+        url: '/weather/',
+        success: function(data){
+            console.log('success function running in frontend');
+            console.log(data);
+        },
+        failure: function(result){
+            console.log('error');
+            error();
+        }
+    });
+    // redirect to thank you
+    // window.location.href = '/thanks';
+}
 
 function findGames(){
     console.log('about to ajax');
@@ -82,4 +102,8 @@ $(document).ready(function(){
     document.getElementById("find").onclick = function(){
         findGames()
     };
-})
+
+    document.getElementById("weather").onclick = function(){
+        getWeather()
+    };
+});
