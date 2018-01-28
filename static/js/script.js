@@ -40,7 +40,7 @@ function updateVisualization(accidents){
 
 	var colorScale = d3.scale.linear()
 		.domain([0, d3.max(accidents, function(d) {return d.count; })/2, d3.max(accidents, function(d) {return d.count; })])
-		.range(["#FFFFDD", "#3E9583", "#1F2D86"])
+		.range(["#95EE95", "#BFC3BF", "#EE9595"])
 		//.interpolate(d3.interpolateHcl);
 
 	var dayLabels = svg.selectAll(".dayLabel")
