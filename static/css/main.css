@@ -53,3 +53,12 @@ h1 {
     border: solid rgb(108, 155, 209);
     border-radius: 10px;
 }
+#list-div {
+    /*background: rgb(214, 255, 238);*/
+    list-style: none;
+    width: 300px;
+    margin-left: 520px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+}

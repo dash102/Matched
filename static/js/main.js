@@ -139,10 +139,10 @@ function getBestAvailable(forty_outputs, available_times){
     console.log('about to be at bottom')
     var num_teams = $('#num_teams').val();
     console.log(num_teams);
-    var txt = ('The safest time to play soccer are: <ul>' + genListTxt(num_teams) + '</ul>');
-    
+    var txt = ('The safest time(s) to play soccer are: <ul>' + genListTxt(num_teams) + '</ul>');
 
     $('#list-div').html(txt);
+    $('#list-div').css('background-color', '#6ab7a6');
 }
 
 function findGames(){
