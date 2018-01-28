@@ -11,15 +11,19 @@ router.get('/', (req, res) => {
     res.render("index");
 })
 
-// Say thanks for submission.
-router.get('/thanks', (req, res) => {
-   res.render("thanks");
+// Let the ref submit a report after the game
+router.get('/ref', (req, res) => {
+   res.render("ref");
 });
 
-router.post('/injuries', (req, res) => {
-    injuries.getInjuryRisk(req.body, (results) => {
+router.get('/injuries', (req, res) => {
+	console.log('getting route injuries');
+    injuries.getInjuryRisk(req.body, 
+    	(results) => {
+    		console.log('about to send result to frontend');
         res.send(results);
-    });
+    }
+    );
 });
 
 module.exports = router;
