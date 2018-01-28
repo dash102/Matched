@@ -58,4 +58,4 @@ $(document).ready(function(){
     document.getElementById("predict").onclick = function(){
         getPrediction()
     };
-})
+});

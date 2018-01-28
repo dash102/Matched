@@ -5,6 +5,7 @@
   "main": "server.js",
   "dependencies": {
     "accuweather": "^1.0.1",
+    "aws-sdk": "^2.188.0",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.16.2",
