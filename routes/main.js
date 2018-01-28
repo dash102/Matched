@@ -26,13 +26,14 @@ router.post('/games', (req, res) => {
   	// res.render("ref");
 });
 
-
-router.get('/weather', (req, res) => {
-    weather.findWeather((results) => {
-        console.log('about to send result to frontend');
-        res.send(results);
-    });
-    // res.render("ref");
+// Really the only thing this does is compute heat index
+router.get('/weather/', (req, res) => {
+	console.log('get request for weather route.  Req body is ');
+	console.log(req.body);
+	weather.getHeatIndex(req.body, (results) => {
+		console.log('about to send heat index data to frontend');
+		res.send(results);
+	})
 });
 
 // Let anyone get the schedule
@@ -44,14 +45,14 @@ router.get('/games', (req, res) => {
   	// res.render("ref");
 });
 
-router.get('/injuries', (req, res) => {
-	console.log('getting route injuries');
-    injuries.getInjuryRisk(req.body, 
-    	(results) => {
-    		console.log('about to send result to frontend');
-        	res.send(results);
-    }
-    );
+router.post('/injuries', (req, res) => {
+	console.log('posting route injuries');
+	console.log(req.body);
+    pred =  injuries.getInjuryRisk(req.body, (results) => {
+    	console.log('within callback!')
+    	console.log(results);
+    	res.send(results);
+    });
 });
 
 module.exports = router;
