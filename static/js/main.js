@@ -59,22 +59,55 @@ function getWeather(){
                1, 1, 1, 0, 0, 0, 0, 1, 1, 1];
         setTimeout(function(){
             console.log(outputs);
-            console.log('here');
             getBestAvailable(outputs, thing);
         }, 5000)
 
     });
 }
 
-function genListTxt(i){
-    var total = ''
-    a = Array(i);
-    a.forEach(function(d, i){
-        total += 'hi' + parseInt(d) + 'bye';
-    });
-    console.log(total);
+dataManual = {
+    0: 'Jan 28, 2018 at 6pm',
+    1: 'Jan 28, 2018 at 9pm',
+    2: 'Jan 29, 2018 at 12am',
+    3: 'Jan 29, 2018 at 3am',
+    4: 'Jan 29, 2018 at 6am',
+    5: 'Jan 29, 2018 at 9am',
+    6: 'Jan 29, 2018 at 12pm',
+    7: 'Jan 29, 2018 at 3pm',
+    8: 'Jan 29, 2018 at 6pm',
+    9: 'Jan 29, 2018 at 9pm',
+    10: 'Jan 30, 2018 at 12am',
+    11: 'Jan 30, 2018 at 3am',
+    12: 'Jan 30, 2018 at 6am',
+    13: 'Jan 30, 2018 at 9am',
+    14: 'Jan 30, 2018 at 12pm',
+    15: 'Jan 30, 2018 at 3pm',
+    16: 'Jan 30, 2018 at 6pm',
+    17: 'Jan 30, 2018 at 9pm',
+    18: 'Jan 31, 2018 at 12am',
+    19: 'Jan 31, 2018 at 3am',
+    20: 'Jan 31, 2018 at 6am',
+    21: 'Jan 31, 2018 at 9am',
+    22: 'Jan 31, 2018 at 12pm',
+    23: 'Jan 31, 2018 at 3pm',
+    24: 'Jan 31, 2018 at 6pm',
+    25: 'Jan 31, 2018 at 9pm',
+    26: 'Feb 1, 2018 at 12am',
+    27: 'Feb 1, 2018 at 3am',
+    28: 'Feb 1, 2018 at 6am',
+    29: 'Feb 1, 2018 at 9am',
+    30: 'Feb 1, 2018 at 12pm',
+    31: 'Feb 1, 2018 at 3pm',
+    32: 'Feb 1, 2018 at 6pm',
+    33: 'Feb 1, 2018 at 9pm',
+    34: 'Feb 2, 2018 at 12am',
+    35: 'Feb 2, 2018 at 3am',
+    36: 'Feb 2, 2018 at 6am',
+    37: 'Feb 2, 2018 at 9am',
+    38: 'Feb 2, 2018 at 12pm',
+    39: 'Feb 2, 2018 at 3pm',
 }
-console.log(genListTxt(10));
+
 
 function getBestAvailable(forty_outputs, available_times){
     console.log('running get best available');
@@ -94,12 +127,20 @@ function getBestAvailable(forty_outputs, available_times){
         else {
             return 1;
         }
-    })
+    });
+    function genListTxt(i){
+        var total = ''
+        for(k = 0 ; k< i; k++){
+            total += '<li>' + dataManual[paired[k]['index']] + '</li>';
+        };
+        return total;
+    }
+    console.log(paired);
 
-
+    console.log('about to be at bottom')
     var num_teams = $('#num_teams').val();
     console.log(num_teams);
-    var txt = ('<ul>' + genListTxt(3) + '</ul>');
+    var txt = ('The safest time to play soccer are: <ul>' + genListTxt(num_teams) + '</ul>');
     
 
     $('#list-div').html(txt);
@@ -185,19 +226,19 @@ function getPrediction(params, callback){
     // window.location.href = '/thanks';
 }
 $(document).ready(function(){
-    document.getElementById("predict").onclick = function(){
-        getPrediction()
-    };
+    // document.getElementById("predict").onclick = function(){
+    //     getPrediction()
+    // };
 
-    document.getElementById("add").onclick = function(){
-        addDates()
-    };
+    // document.getElementById("add").onclick = function(){
+    //     addDates()
+    // };
 
-    document.getElementById("find").onclick = function(){
-        findGames()
-    };
+    // document.getElementById("find").onclick = function(){
+    //     findGames()
+    // };
 
     document.getElementById("weather").onclick = function(){
-        getWeather()
+        getWeather();
     };
 });
